@@ -2,9 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Run in docker
 ```bash
-Make sure have docker software
-docker build -t react-timer .
-docker run -p 3000:3000 react-timer
+1. Make sure have docker software
+2. Terminal Run
+   2.1 docker build -t react-timer .
+   2.2 docker run -p 3000:3000 react-timer
 ```
 
 ## Getting Started
