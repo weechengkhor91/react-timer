@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Run in docker
+```bash
+1. Make sure have docker software
+2. Terminal Run
+   2.1 docker build -t react-timer .
+   2.2 docker run -p 3000:3000 react-timer
+```
+
 ## Getting Started
 
 First, run the development server:
