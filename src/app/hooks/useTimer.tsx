@@ -1,8 +1,8 @@
 'use client'                                                                                                         
                                                                                                                       
- import { useState, useEffect } from "react";                                                                         
+ import { useState, useEffect, useRef } from "react";                                                                         
                                                                                                                       
- const notificationAudio = new Audio('ringtone-001.mp3');                                                            
+ const notificationAudio = useRef<HTMLAudioElement | null>(null);                                                            
                                                                                                                       
  type TimerType = "work" | "break";                                                                                   
                                                                                                                       
@@ -34,9 +34,11 @@
              // change to timerType break                                                                             
              if(timerType === 'work') {                                                                               
                setShowModal(true);                                                                                    
-               notificationAudio.play().catch(error => {                                                              
-                 console.error("Failed to play notification sound:", error);                                                                                                                         
-               });                                                                                                    
+               if (typeof window !== 'undefined' && notificationAudio.current) {
+                 notificationAudio.current.play().catch(error => {                                                              
+                   console.error("Failed to play notification sound:", error);                                                                                                                         
+                 });                                                                                                    
+               }
              } else {                                                                                                 
                setTimerType("work");                                                                                  
                setTimeLeft(WORK_TIME);                                                                                
