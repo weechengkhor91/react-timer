@@ -2,6 +2,8 @@
 
 import  { useState, useEffect } from "react";
 
+const notificationAudio = new Audio('/notification.mp3');
+
 type TimerType = "work" | "break";
 
 const WORK_TIME = 25 * 60;
@@ -33,9 +35,12 @@ const useTimer = () => {
             if(timerType === 'work') {
 
               setTimerType("break");
-              
-              setTimeLeft(BREAK_TIME);
-              
+              notificationAudio.play().then(() => {
+                setTimeLeft(BREAK_TIME);
+              }).catch(error => {
+                console.error("Failed to play notification sound:", error);
+                setTimeLeft(BREAK_TIME);
+              });
             }else {
               setTimerType("work");
               setTimeLeft(WORK_TIME);
