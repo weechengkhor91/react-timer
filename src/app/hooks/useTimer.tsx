@@ -67,7 +67,9 @@
    };                                                                                                                 
                                                                                                                       
    const handleTakeBreak = () => {                                                                                    
-     setShowModal(false);                                                                                             
+     setShowModal(false);
+     notificationAudio.pause();
+     notificationAudio.currentTime = 0;                                                                                             
      setTimerType("break");                                                                                           
      setTimeLeft(BREAK_TIME);                                                                                         
      setIsStart(true);                                                                                                
