@@ -75,16 +75,24 @@
     };                                                                                                                
                                                                                                                       
     const handleTakeBreak = () => {                                                                                   
-      setShowModal(false);                                                                                            
-      setTimerType("break");                                                                                          
-      setTimeLeft(BREAK_TIME);                                                                                        
-      setIsStart(true);                                                                                               
-    };                                                                                                                
-                                                                                                                      
-    const handleContinueWork = () => {                                                                                
-      setShowModal(false);                                                                                            
-      resetTimer();                                                                                                   
-    };                                                                                                                
+      if (notificationAudio.current) {
+        notificationAudio.current.pause();
+        notificationAudio.current.currentTime = 0;
+      }
+      setShowModal(false);
+      setTimerType("break");
+      setTimeLeft(BREAK_TIME);
+      setIsStart(true);
+    };
+
+    const handleContinueWork = () => {
+      if (notificationAudio.current) {
+        notificationAudio.current.pause();
+        notificationAudio.current.currentTime = 0;
+      }
+      setShowModal(false);
+      resetTimer();
+    };
                                                                                                                       
     return { timeLeft, isStart, timerType, startTimer, stopTimer, resetTimer, setIsStart, counterCycle, showModal,    
   handleTakeBreak, handleContinueWork };                                                                              
