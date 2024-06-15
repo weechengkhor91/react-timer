@@ -2,7 +2,7 @@
                                                                                                                       
  import { useState, useEffect } from "react";                                                                         
                                                                                                                       
- const notificationAudio = new Audio('/ringtone-001.mp3');                                                            
+ const notificationAudio = new Audio('ringtone-001.mp3');                                                            
                                                                                                                       
  type TimerType = "work" | "break";                                                                                   
                                                                                                                       
@@ -35,8 +35,7 @@
              if(timerType === 'work') {                                                                               
                setShowModal(true);                                                                                    
                notificationAudio.play().catch(error => {                                                              
-                 console.error("Failed to play notification sound:", error);                                          
-                 setShowModal(true);                                                                                  
+                 console.error("Failed to play notification sound:", error);                                                                                                                         
                });                                                                                                    
              } else {                                                                                                 
                setTimerType("work");                                                                                  
@@ -67,9 +66,7 @@
    };                                                                                                                 
                                                                                                                       
    const handleTakeBreak = () => {                                                                                    
-     setShowModal(false);
-     notificationAudio.pause();
-     notificationAudio.currentTime = 0;                                                                                             
+     setShowModal(false);                                                                                             
      setTimerType("break");                                                                                           
      setTimeLeft(BREAK_TIME);                                                                                         
      setIsStart(true);                                                                                                
@@ -84,4 +81,4 @@
  handleTakeBreak, handleContinueWork };                                                                               
  };                                                                                                                   
                                                                                                                       
- export default useTimer;  
+ export default useTimer;    
