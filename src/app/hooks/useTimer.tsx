@@ -5,7 +5,7 @@ import  { useState, useEffect } from "react";
 type TimerType = "work" | "break";
 
 const useTimer = () => {
-  const [timeLeft, setTimeLeft] = useState(5); // 25 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
   const [isStart, setIsStart] = useState(false);
   const [timerType, setTimerType] = useState<TimerType>("work");
   const [counterCycle, setCounterCycle] = useState(0);
@@ -32,11 +32,11 @@ const useTimer = () => {
 
               setTimerType("break");
               
-              setTimeLeft(3);
+              setTimeLeft(5 * 60);
               
             }else {
               setTimerType("work");
-              setTimeLeft(5);
+              setTimeLeft(25 * 60);
 
             }
             // stop after done work time and break time (1 cycle)
