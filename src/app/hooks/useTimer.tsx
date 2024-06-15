@@ -4,8 +4,10 @@ import  { useState, useEffect } from "react";
 
 type TimerType = "work" | "break";
 
+const WORK_TIME = 25 * 60;
+const BREAK_TIME = 5 * 60;
 const useTimer = () => {
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(WORK_TIME); // 25 minutes in seconds
   const [isStart, setIsStart] = useState(false);
   const [timerType, setTimerType] = useState<TimerType>("work");
   const [counterCycle, setCounterCycle] = useState(0);
@@ -32,11 +34,11 @@ const useTimer = () => {
 
               setTimerType("break");
               
-              setTimeLeft(5 * 60);
+              setTimeLeft(BREAK_TIME);
               
             }else {
               setTimerType("work");
-              setTimeLeft(25 * 60);
+              setTimeLeft(WORK_TIME);
 
             }
             // stop after done work time and break time (1 cycle)
@@ -60,7 +62,7 @@ const useTimer = () => {
   const stopTimer = () => setIsStart(false);
   const resetTimer = () => {
     setIsStart(false);
-    setTimeLeft(timerType === "work" ? 25 * 60 : 5 * 60);
+    setTimeLeft(timerType === "work" ? WORK_TIME : BREAK_TIME);
   };
 
   return { timeLeft, isStart, timerType, startTimer, stopTimer, resetTimer,  setIsStart, counterCycle };
