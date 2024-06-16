@@ -96,7 +96,7 @@
                  Do you want to take a 5-minute break or continue working?                                            
                </ModalBody>                                                                                           
                <ModalFooter>                                                                                          
-                 <Button colorScheme="pink.500" mr={3} onClick={handleTakeBreak}>                                         
+                 <Button variant="primary" mr={3} onClick={handleTakeBreak}>                                         
                    Take Break                                                                                         
                  </Button>                                                                                            
                  <Button variant="outline"  onClick={handleContinueWork}>Continue Work</Button>                          
