@@ -83,8 +83,8 @@ const useTimer = (onClose: () => void) => {
     setTimerType("break");                                                                                         
     setTimeLeft(BREAK_TIME);                                                                                       
     setIsStart(true);                                                                                              
-    onClose();    
-    setShowModal(false);                                                                                                   
+    setShowModal(false);
+    onClose();                                                                                                   
   };                                                                                                               
                                                                                                                    
   const handleContinueWork = () => {                                                                               
