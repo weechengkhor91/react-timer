@@ -68,7 +68,15 @@ const theme = extendTheme({
                         bg: "brand.600",
                         color:"#fff",
                     },
-                  }
+                  },
+                primary: {
+                    ...buttonCustomStyles,
+                    bg: "brand.500",
+                    color: "#fff",
+                    _hover: {
+                        bg: "brand.600",
+                    },
+                },
             }
         },
 

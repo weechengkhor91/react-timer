@@ -133,7 +133,7 @@ const Home = () => {
               Do you want to take a 5-minute break or continue working?
             </ModalBody>
             <ModalFooter>
-              <Button variant="primary" mr={3} onClick={handleTakeBreak}>
+              <Button variant="buttonCustom" mr={3} onClick={handleTakeBreak}>
                 Take Break
               </Button>
               <Button variant="outline" onClick={handleContinueWork}>
