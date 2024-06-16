@@ -8,7 +8,7 @@
                                                                                                                       
   const WORK_TIME = 5; //25*60                                                                                        
   const BREAK_TIME = 3; //5*60                                                                                        
-  const useTimer = () => {                                                                                            
+  const useTimer = (onClose: () => void) => {                                                                                            
     const [timeLeft, setTimeLeft] = useState(WORK_TIME); // 25 minutes in seconds                                     
     const [isStart, setIsStart] = useState(false);                                                                    
     const [timerType, setTimerType] = useState<TimerType>("work");                                                    
@@ -80,7 +80,11 @@
         notificationAudio.current.currentTime = 0;
       }
       setShowModal(false);
+      setShowModal(false);
       setTimerType("break");
+      setTimeLeft(BREAK_TIME);
+      setIsStart(true);
+      onClose();
       setTimeLeft(BREAK_TIME);
       setIsStart(true);
     };
