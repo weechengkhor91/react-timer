@@ -12,7 +12,15 @@ const buttonCustomStyles = {
     height:["80px", "80px", "100px"],
     width:["80px", "80px", "100px"],
 
-}
+  },
+primary: {
+    ...buttonCustomStyles,
+    bg: "brand.500",
+    color: "#fff",
+    _hover: {
+        bg: "brand.600",
+    },
+},
 const theme = extendTheme({
     colors: {
         brand: {
